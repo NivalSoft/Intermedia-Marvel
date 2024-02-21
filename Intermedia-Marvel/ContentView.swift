@@ -8,17 +8,63 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var loginViewModel = LoginViewModel()
+    @StateObject var router = Router()
+    @State var showSplash = true
+    @State var isLogged = true// User.current != nil
+    @State var selectedTab: HomeTab = .characters
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if showSplash {
+            SplashView()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        showSplash = false
+                    }
+                }
+            
+        } else {
+            Group {
+                if isLogged {
+                    NavigationStack(path: $router.path) {
+                        MainView(selectedTab: $selectedTab)
+                            .environmentObject(loginViewModel)
+                            .navigationDestination(for: NavigationDestination.self) { destination in
+                                navigation(for: destination)
+                            }
+                    }
+                } else {
+                    NavigationStack(path: $router.path) {
+                        
+                        //meter login view
+
+                        Text("not logged")
+                    }
+                }
+            }
+            .transition(.opacity)
+            .animation(.default, value: isLogged)
+            .background(.appBackground)
+            .environmentObject(router)
+            .tint(Color(.label))
         }
-        .padding()
+    }
+    
+    func navigation(for destination: NavigationDestination) -> some View {
+        Group {
+            switch destination {
+            case .eventDetail:
+                EmptyView()
+               
+            }
+        }
+        .environmentObject(router)
     }
 }
 
 #Preview {
     ContentView()
 }
+
+
