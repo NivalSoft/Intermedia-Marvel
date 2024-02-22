@@ -28,6 +28,7 @@
 		EAE8E1942B87839C00EE17FB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAE8E1882B87839C00EE17FB /* Roboto-Regular.ttf */; };
 		EAE8E1B72B8783C600EE17FB /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAE8E1A52B8783C500EE17FB /* RobotoCondensed-Bold.ttf */; };
 		EAE8E1BD2B87847C00EE17FB /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAE8E1BC2B87847C00EE17FB /* RobotoCondensed-Regular.ttf */; };
+		EAE8E1C32B87C1D200EE17FB /* IntermediaLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8E1C22B87C1D200EE17FB /* IntermediaLogo.swift */; };
 		EAEF9F2C2B862CF0004D4792 /* Intermedia_MarvelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF9F2B2B862CF0004D4792 /* Intermedia_MarvelApp.swift */; };
 		EAEF9F2E2B862CF0004D4792 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF9F2D2B862CF0004D4792 /* ContentView.swift */; };
 		EAEF9F302B862CF1004D4792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAEF9F2F2B862CF1004D4792 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		EAE8E1882B87839C00EE17FB /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		EAE8E1A52B8783C500EE17FB /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		EAE8E1BC2B87847C00EE17FB /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		EAE8E1C22B87C1D200EE17FB /* IntermediaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediaLogo.swift; sourceTree = "<group>"; };
 		EAEF9F282B862CF0004D4792 /* Intermedia-Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Intermedia-Marvel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEF9F2B2B862CF0004D4792 /* Intermedia_MarvelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intermedia_MarvelApp.swift; sourceTree = "<group>"; };
 		EAEF9F2D2B862CF0004D4792 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				EA9C15A32B866BFA00FF544E /* TabBar */,
 				EA9C15AF2B8673AC00FF544E /* LoadingView.swift */,
+				EAE8E1C22B87C1D200EE17FB /* IntermediaLogo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				EA9C159D2B863FA200FF544E /* IDHashable.swift in Sources */,
 				EAE8E17D2B87824100EE17FB /* Fonts.swift in Sources */,
 				EA9C159B2B863F7A00FF544E /* UserDefaultsCodable.swift in Sources */,
+				EAE8E1C32B87C1D200EE17FB /* IntermediaLogo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

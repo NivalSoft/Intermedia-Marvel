@@ -13,26 +13,15 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
-//            Image(.splash)
-//                .resizable()
-            
             Color(.black)
-                
             if show {
-                Image(.splashLogo)
+                Image(.mainIcon)
                     .offset(y: -40)
             }
             
-            VStack(spacing: 0) {
-                Text("developed_by")
-                    .foregroundStyle(.white)
-                
-                
-                Text("enterprise_logo")
-                    .foregroundStyle(.white)
-            }
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .offset(y: -40)
+            IntermediaLogo()
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .offset(y: -40)
         }
         .ignoresSafeArea()
         .onAppear {
