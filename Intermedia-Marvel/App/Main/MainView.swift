@@ -45,7 +45,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(selectedTab: .constant(.events))
+    MainView(selectedTab: .constant(.characters))
         .environmentObject(LoginViewModel())
         .environmentObject(Router())
 }

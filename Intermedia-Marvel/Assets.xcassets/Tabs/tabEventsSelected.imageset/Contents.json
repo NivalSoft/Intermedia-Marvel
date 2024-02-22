@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "tabStoreSelected.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "tabStoreSelected@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "tabStoreSelected@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "icon-calendar-disabled.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
