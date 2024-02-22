@@ -161,7 +161,6 @@
 		EAEF9F1F2B862CF0004D4792 = {
 			isa = PBXGroup;
 			children = (
-				EA9C159F2B86445A00FF544E /* Launch Screen.storyboard */,
 				EAEF9F2A2B862CF0004D4792 /* Intermedia-Marvel */,
 				EAEF9F292B862CF0004D4792 /* Products */,
 			);
@@ -183,6 +182,7 @@
 				EAEF9F3B2B863218004D4792 /* Resources */,
 				EAEF9F3A2B86320E004D4792 /* Networking */,
 				EAEF9F392B86310E004D4792 /* Models */,
+				EA9C159F2B86445A00FF544E /* Launch Screen.storyboard */,
 				EAEF9F2B2B862CF0004D4792 /* Intermedia_MarvelApp.swift */,
 				EAEF9F2D2B862CF0004D4792 /* ContentView.swift */,
 				EA9C158D2B8638FF00FF544E /* AppDelegate.swift */,
