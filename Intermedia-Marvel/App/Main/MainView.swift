@@ -13,7 +13,8 @@ struct MainView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var loginViewModel: LoginViewModel
     
-    @State var showPasswordSheet = false
+    @StateObject private var viewModel = MainViewModel()
+
     
     var body: some View {
         ZStack {
@@ -35,6 +36,9 @@ struct MainView: View {
         TabView(selection: $selectedTab) {
             Text("charact")
                 .tag(HomeTab.characters)
+                .onAppear {
+//                    viewModel.charactersManager.requestNewPage(for: Character)
+                }
             
             Text("events")
                 .tag(HomeTab.events)
