@@ -12,11 +12,57 @@ struct CharacterDetailView: View {
     @State var character: Character
     
     var body: some View {
-        VStack {
-            EmptyView()
-            Spacer()
+        
+        ZStack {
+            Color.navigationBackground
+            List {
+                Section {
+                    VStack (spacing: 24) {
+                        AsyncImageView(url: character.thumbnail?.getFileURL(size: .amazing))
+                            .frame(width: UIScreen.main.bounds.size.width)
+                            .scaledToFit()
+                        
+                        Text(character.description ?? "")
+                            .font(.Roboto.regular(withSize: 14))
+                            .padding(.horizontal, 50)
+                    }
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.appBackground)
+                .listRowInsets(.init())
+                
+               
+                if let items = character.comics?.items {
+                    Section {
+                        Text("APPEARS IN THESE COMICS")
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .font(.RobotoCondensed.regular(withSize: 20))
+                            .padding(.top, 20)
+                            .padding(.vertical, 20)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.appBackground)
+                    .listRowInsets(.init())
+                    
+                    Section {
+                        ForEach(items) { item in
+                            ComicListItemCell(item: item)
+                                .alignmentGuide(.listRowSeparatorTrailing) { viewDimensions in
+                                    return viewDimensions[.listRowSeparatorTrailing] - 15
+                                }
+                        }
+                    }
+                    .listStyle(.insetGrouped)
+                    .listRowBackground(Color.appBackground)
+                    .listRowInsets(.init())
+                }
+                
+            }
+            .scrollIndicators(.hidden)
+            .listStyle(PlainListStyle())
+        .addCustomNavigationBar(title: character.name?.capitalized ?? "")
         }
-        .addCustomNavigationBar(title: character.name ?? "")
+        
     }
     
 }

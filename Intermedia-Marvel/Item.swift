@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Item: Codable {
+struct Item: Codable, Identifiable {
+    let id = UUID()
     let name: String?
     let type: String?
     let resourceURI: String?
@@ -16,5 +17,13 @@ struct Item: Codable {
         case name
         case type
         case resourceURI
+    }
+}
+
+extension Item {
+    init() {
+        name = "Iron man (1968) #55"
+        type = nil
+        resourceURI = "http://gateway.marvel.com/v1/public/comics/21366"
     }
 }

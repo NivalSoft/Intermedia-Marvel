@@ -31,10 +31,10 @@ extension Character {
     init() {
         id = 99
         name = "Thanos"
-        description = "Using the power of"
+        description = "Using the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power ofUsing the power of"
         modified = ""
         thumbnail = .init(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", fileExtension: "jpg")
         resourceURI = ""
-        comics = nil
+        comics = .init(available: 10, collectionURI: nil, items: [.init(), .init(), .init(), .init()], returned: 2)
     }
 }
