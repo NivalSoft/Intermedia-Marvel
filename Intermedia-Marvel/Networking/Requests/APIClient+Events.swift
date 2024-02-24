@@ -15,7 +15,7 @@ extension APIClient.Event {
     
     /// Get events
     struct GetEvents : APIRequest {
-        typealias ResponseType = PaginatedResponse<Character>
+        typealias ResponseType = PaginatedResponse<Event>
         
         //        let apikey      : String?
         //        let page        : Int?

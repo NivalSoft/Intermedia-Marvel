@@ -35,7 +35,7 @@ struct MainView: View {
             CharactersView()
                 .tag(HomeTab.characters)
             
-            Text("events")
+            EventsView()
                 .tag(HomeTab.events)
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
