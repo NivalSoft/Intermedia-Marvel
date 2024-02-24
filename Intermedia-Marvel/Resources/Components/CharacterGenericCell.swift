@@ -28,6 +28,7 @@ struct CharacterGenericCell : View {
                     .font(.Roboto.regular(withSize: 14))
                     .foregroundStyle(.eventsCellTitle)
             }
+            .multilineTextAlignment(.center)
             .minimumScaleFactor(0.8)
             .frame(maxWidth: .infinity)
             .padding(10)

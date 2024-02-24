@@ -15,7 +15,6 @@ struct MainView: View {
     
     @StateObject private var viewModel = MainViewModel()
 
-    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -28,8 +27,7 @@ struct MainView: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .loading($loginViewModel.isLoading)
-        .navigationTitle("")
-        .ignoresSafeArea(.keyboard)
+        .addCustomNavigationBar(title: "Marvel Challenge", showBack: false, backgroundColor: .navigationBackground)
     }
     
     var tabs: some View {

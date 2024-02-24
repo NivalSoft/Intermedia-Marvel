@@ -12,7 +12,11 @@ struct CharacterDetailView: View {
     @State var character: Character
     
     var body: some View {
-        AsyncImageView(url: character.thumbnail?.getFileURL(size: .amazing))
+        VStack {
+            EmptyView()
+            Spacer()
+        }
+        .addCustomNavigationBar(title: character.name ?? "")
     }
     
 }

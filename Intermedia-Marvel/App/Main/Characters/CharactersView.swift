@@ -14,6 +14,7 @@ struct CharactersView: View {
     
     var body: some View {
       characters
+            .padding(.top, -20)
     }
     
     var characters : some View {
@@ -33,9 +34,8 @@ struct CharactersView: View {
                 .padding(.top, 10)
             }
         }
+        .scrollIndicators(.hidden)
     }
-    
-
 }
 
 #Preview {
