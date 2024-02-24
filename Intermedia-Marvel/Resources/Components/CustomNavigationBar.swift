@@ -93,6 +93,7 @@ struct CustomNavigationBar: View {
             HStack {
                 if let image = item.image {
                     image
+                        .foregroundStyle(.white)
                         .fontWeight(.bold)
                 }
                 if let title = item.title {

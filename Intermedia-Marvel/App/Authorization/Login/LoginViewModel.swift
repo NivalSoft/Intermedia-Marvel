@@ -13,6 +13,7 @@ final class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     
     @Published var isLoading: Bool = false
+    @Published var isLogged: Bool = User.current != nil
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -21,13 +22,22 @@ final class LoginViewModel: ObservableObject {
     }
     
     func login(_ success: @escaping ()->Void) {
-        isLoading = true
+//        isLoading = true
         
+        let user = User().getTestUser()
+        user.save()
+
+        isLogged = true
         //call de login
     }
     
     private func validateFields() {
 
+    }
+    
+    func logout() {
+        User.current?.clear()
+        isLogged = false
     }
     
 }

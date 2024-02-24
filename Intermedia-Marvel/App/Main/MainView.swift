@@ -13,6 +13,8 @@ struct MainView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var loginViewModel: LoginViewModel
     
+    @State var isShowingSheet = false
+    
     @StateObject private var viewModel = MainViewModel()
 
     var body: some View {
@@ -27,7 +29,27 @@ struct MainView: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .loading($loginViewModel.isLoading)
-        .addCustomNavigationBar(title: "Marvel Challenge", showBack: false, backgroundColor: .navigationBackground)
+        .addCustomNavigationBar(
+            items: [
+                .init(alignment: .trailing, image: .init(systemName: "gearshape.fill"), action: {
+                    isShowingSheet = true
+                })
+            ],
+            title: "Marvel Challenge",
+            showBack: false,
+            backgroundColor: .navigationBackground
+        )
+        .sheet(isPresented: $isShowingSheet) {
+            ZStack {
+                Color.navigationBackground.edgesIgnoringSafeArea(.all)
+                LogoutBottomSheet(viewModel: _loginViewModel)
+            }
+            .onAppear {
+                setWindowBackgroundColor(.navigationBackground)
+            }
+            .presentationDetents([.height(160)])
+            .presentationDragIndicator(.visible)
+        }
     }
     
     var tabs: some View {

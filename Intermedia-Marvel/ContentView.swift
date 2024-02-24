@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject var loginViewModel = LoginViewModel()
     @StateObject var router = Router()
     @State var showSplash = true
-    @State var isLogged = true// User.current != nil
+    @State var isLogged = User.current != nil
     @State var selectedTab: HomeTab = .characters
     
     var body: some View {
@@ -20,15 +20,15 @@ struct ContentView: View {
             SplashView()
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        loginViewModel.login({})
                         withAnimation(.easeInOut(duration: 0.8)) {
                             self.showSplash = false
                         }
                     }
                 }
-            
         } else {
             Group {
-                if isLogged {
+                if loginViewModel.isLogged {
                     NavigationStack(path: $router.path) {
                         MainView(selectedTab: $selectedTab)
                             .environmentObject(loginViewModel)
@@ -45,8 +45,13 @@ struct ContentView: View {
                     }
                 }
             }
+            .onChange(of: loginViewModel.isLogged, {
+                withAnimation(.easeInOut(duration: 0.8)) {
+                    self.isLogged = loginViewModel.isLogged
+                }
+            })
             .transition(.opacity)
-            .animation(.default, value: isLogged)
+            .animation(.default, value: loginViewModel.isLogged)
             .background(.appBackground)
             .environmentObject(router)
             .tint(Color(.label))
