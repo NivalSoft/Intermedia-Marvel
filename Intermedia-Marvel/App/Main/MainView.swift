@@ -34,11 +34,8 @@ struct MainView: View {
     
     var tabs: some View {
         TabView(selection: $selectedTab) {
-            Text("charact")
+            CharactersView()
                 .tag(HomeTab.characters)
-                .onAppear {
-//                    viewModel.charactersManager.requestNewPage(for: Character)
-                }
             
             Text("events")
                 .tag(HomeTab.events)

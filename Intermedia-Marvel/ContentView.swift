@@ -56,9 +56,8 @@ struct ContentView: View {
     func navigation(for destination: NavigationDestination) -> some View {
         Group {
             switch destination {
-            case .eventDetail:
-                EmptyView()
-               
+            case .characterDetail(let character):
+                CharacterDetailView(character: character)
             }
         }
         .environmentObject(router)

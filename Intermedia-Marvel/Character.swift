@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Character: Codable {
-    let id: Int?
+struct Character: Codable,  Identifiable,  IDHashable {
+    var id: Int?
     let name: String?
     let description: String?
     let modified: String?
@@ -24,5 +24,17 @@ struct Character: Codable {
         case thumbnail
         case resourceURI
         case comics
+    }
+}
+
+extension Character {
+    init() {
+        id = 99
+        name = "Thanos"
+        description = "Using the power of"
+        modified = ""
+        thumbnail = .init(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", fileExtension: "jpg")
+        resourceURI = ""
+        comics = nil
     }
 }
