@@ -13,29 +13,29 @@ struct CharactersView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-      characters
+        characters
             .padding(.top, -20)
     }
     
     var characters : some View {
-        List {
-            ForEach($viewModel.characters, id: \.self) { character in
-                CharacterGenericCell(character: character.wrappedValue)
-                .onAppear {
-                    viewModel.charactersManager.requestNewPage(for: character.wrappedValue)
+            List {
+                ForEach($viewModel.characters, id: \.self) { character in
+                    CharacterGenericCell(character: character.wrappedValue)
+                        .onAppear {
+                            viewModel.charactersManager.requestNewPage(for: character.wrappedValue)
+                        }
+                        .onTapGesture {
+                            router.push(.characterDetail(character: character.wrappedValue))
+                        }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
+                        .listRowInsets(.init())
+                        .padding(.top, 10)
                 }
-                
-                .onTapGesture {
-                    router.push(.characterDetail(character: character.wrappedValue))
-                }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
-                .listRowInsets(.init())
-                .padding(.top, 10)
             }
-        }
-        .scrollIndicators(.hidden)
+            .scrollIndicators(.hidden)
     }
+    
 }
 
 #Preview {

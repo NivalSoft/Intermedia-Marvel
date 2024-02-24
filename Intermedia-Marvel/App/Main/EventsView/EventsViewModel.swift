@@ -16,7 +16,7 @@ final class EventsViewModel: ObservableObject {
     
     
     @Republished var eventsManager = PageManager<Event> { page, _ in
-        APIClient.Event.GetEvents().dispatch()
+        APIClient.Event.GetEvents(page: page).dispatch()
     }
     
     private var cancellables = Set<AnyCancellable>()

@@ -35,7 +35,8 @@ struct EventsView: View {
             ForEach($viewModel.events, id: \.self) { event in
                 EventGenericCell(event: event.wrappedValue)
                     .onAppear {
-                        viewModel.eventsManager.requestNewPage(for: event.wrappedValue)
+                        // If events should ask for new pages
+//                        viewModel.eventsManager.requestNewPage(for: event.wrappedValue)
                     }
                     .onTapGesture {
                         selectedItem = event.wrappedValue

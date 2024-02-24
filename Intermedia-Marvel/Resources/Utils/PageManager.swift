@@ -20,7 +20,8 @@ final class PageManager<Element: Codable>: ObservableObject {
     private let fetchHandler: FetchHandler
     private var currentRequest: AnyCancellable?
     private var cancellables = Set<AnyCancellable>()
-    private var currentPage: Int = 1
+    private let INITIAL_PAGE = 0
+    private var currentPage: Int = 0
     
     init(waitForFirstRequest: Bool = false, fetchHandler: @escaping FetchHandler) {
         self.fetchHandler = fetchHandler
@@ -60,7 +61,7 @@ final class PageManager<Element: Codable>: ObservableObject {
     }
     
     @objc func reload() {
-        currentPage = 1
+        currentPage = INITIAL_PAGE
         state = .waiting
         fetchElements()
     }
@@ -69,7 +70,7 @@ final class PageManager<Element: Codable>: ObservableObject {
         currentRequest?.cancel()
         
         let page = currentPage
-        if page == 1 {
+        if page == INITIAL_PAGE {
             state = .loading
         }
         
@@ -90,14 +91,14 @@ final class PageManager<Element: Codable>: ObservableObject {
                 receiveValue: { [weak self] response in
                     guard let self = self else { return }
                     
-                    if page == 1 {
+                    if page == INITIAL_PAGE {
                         self.elements = []
                     }
                     
                     self.currentPage += 1
                     self.state = response.data?.isLast ?? true ? .reachedEnd : .waiting
                     withAnimation {
-                        self.elements = page == 1 ? (response.data?.results ?? []) : self.elements + (response.data?.results ?? [])
+                        self.elements = page == self.INITIAL_PAGE ? (response.data?.results ?? []) : self.elements + (response.data?.results ?? [])
                     }
                 })
     }

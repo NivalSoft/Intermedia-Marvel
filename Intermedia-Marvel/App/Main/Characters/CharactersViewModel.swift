@@ -11,12 +11,10 @@ import Combine
 final class CharactersViewModel: ObservableObject {
 
     @Published var loadingCharacters = false
-    
     @Published var characters: [Character] = []
     
-    
     @Republished var charactersManager = PageManager<Character> { page, _ in
-        APIClient.Characters.GetCharacters().dispatch()
+        APIClient.Characters.GetCharacters(page: page).dispatch()
     }
     
     private var cancellables = Set<AnyCancellable>()
@@ -34,5 +32,7 @@ final class CharactersViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .assign(to: \.loadingCharacters, on: self)
             .store(in: &cancellables)
+        
     }
+    
 }

@@ -25,7 +25,7 @@ struct CharacterDetailView: View {
                             .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
                             .scaledToFit()
                         
-                        if let description = character.description {
+                        if let description = character.description, description.count > 0 {
                             Text(description)
                                 .font(.Roboto.regular(withSize: 14))
                                 .padding(.horizontal, 50)

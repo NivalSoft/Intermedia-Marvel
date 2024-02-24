@@ -41,4 +41,3 @@ struct TabBarView: View {
         TabBarView(selected: .constant(.characters))
     }
 }
-
