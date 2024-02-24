@@ -18,8 +18,11 @@ struct EventDetailView: View {
             List {
                 Section {
                     HStack (alignment: .top, spacing: 24) {
-                        AsyncImageView(url: event.thumbnail?.getFileURL(size: .amazing))
-                            .frame(width: 86)
+                        AsyncImageView(
+                            url: event.thumbnail?.getFileURL(size: .amazing),
+                            imagePlaceholder: Image(.placeholderEvent)
+                        )
+                            .frame(width: 86, height: 86)
 
                         VStack (spacing: 8) {
                             Text(event.title ?? "")

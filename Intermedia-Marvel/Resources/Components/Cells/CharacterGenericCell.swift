@@ -1,5 +1,5 @@
 //
-//  EventGenericCell.swift
+//  CharacterGenericCell.swift
 //  Intermedia-Marvel
 //
 //  Created by Nicolas Famularo on 24/02/2024.
@@ -7,28 +7,28 @@
 
 import SwiftUI
 
-struct EventGenericCell : View {
+struct CharacterGenericCell : View {
     
-    @State var event: Event
+    @State var character: Character
     
     let MAX_HEIGHT : CGFloat = 120
-    let PADDING : CGFloat = 20
     let CORNER_RADIUS : CGFloat = 8
     
     var body: some View {
-        HStack(spacing: 0) {
-            AsyncImageView(url: event.thumbnail?.getFileURL())
+        HStack(spacing: 16) {
+            AsyncImageView(
+                url: character.thumbnail?.getFileURL(),
+                imagePlaceholder: Image("placeholder_character_" + (randomBool() ? "1" : "2"))
+            )
                 .aspectRatio(contentMode: .fit)
-                .padding([.leading, .vertical], PADDING)
-                .frame(width: MAX_HEIGHT + (PADDING * 0.5), height: MAX_HEIGHT + (PADDING * 0.5), alignment: .leading)
-               
+                .frame(width: MAX_HEIGHT, height: MAX_HEIGHT)
             
             VStack(spacing: 8) {
-                Text(event.title ?? "Marvel Hero")
+                Text(character.name ?? "Marvel Hero")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.RobotoCondensed.regular(withSize: 24))
                 
-                Text(event.start ?? "Marvel Description")
+                Text(character.description ?? "Marvel Description")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.Roboto.regular(withSize: 14))
                     .foregroundStyle(.eventsCellTitle)
@@ -37,7 +37,6 @@ struct EventGenericCell : View {
             .minimumScaleFactor(0.8)
             .frame(maxWidth: .infinity)
             .padding(10)
-            .padding(.trailing, 10)
         }
         .frame(maxWidth: .infinity, maxHeight: MAX_HEIGHT)
         .clipShape(
@@ -59,5 +58,5 @@ struct EventGenericCell : View {
 }
 
 #Preview {
-    EventGenericCell(event: .init())
+    CharacterGenericCell(character: .init())
 }

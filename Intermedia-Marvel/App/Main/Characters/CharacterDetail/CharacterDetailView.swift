@@ -18,13 +18,18 @@ struct CharacterDetailView: View {
             List {
                 Section {
                     VStack (spacing: 24) {
-                        AsyncImageView(url: character.thumbnail?.getFileURL(size: .amazing))
-                            .frame(width: UIScreen.main.bounds.size.width)
+                        AsyncImageView(
+                            url: character.thumbnail?.getFileURL(size: .amazing),
+                            imagePlaceholder: Image("placeholder_character_" + (randomBool() ? "1" : "2"))
+                        )
+                            .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
                             .scaledToFit()
                         
-                        Text(character.description ?? "")
-                            .font(.Roboto.regular(withSize: 14))
-                            .padding(.horizontal, 50)
+                        if let description = character.description {
+                            Text(description)
+                                .font(.Roboto.regular(withSize: 14))
+                                .padding(.horizontal, 50)
+                        }
                     }
                 }
                 .listRowSeparator(.hidden)

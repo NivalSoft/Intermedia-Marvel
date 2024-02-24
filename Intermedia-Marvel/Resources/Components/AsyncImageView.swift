@@ -77,8 +77,8 @@ struct AsyncImageView : View {
 struct AsyncImageView_Previews: PreviewProvider {
     static var previews: some View {
         AsyncImageView(
-            url: "https://picsum.photos/seed/nico/800/800",
-            letterPlaceholder: "N")
+            url: "https://picsum.photos/seed/nico/800/8300",
+            viewPlaceholder: AnyView(LoadingView()))
     }
 }
 
