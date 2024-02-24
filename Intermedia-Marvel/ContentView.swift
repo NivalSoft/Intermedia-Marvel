@@ -38,10 +38,8 @@ struct ContentView: View {
                     }
                 } else {
                     NavigationStack(path: $router.path) {
-                        
-                        //meter login view
-
-                        Text("not logged")
+                        LoginView()
+                            .environmentObject(loginViewModel)
                     }
                 }
             }

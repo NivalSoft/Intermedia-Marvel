@@ -22,8 +22,8 @@ struct CharacterDetailView: View {
                             url: character.thumbnail?.getFileURL(size: .amazing),
                             imagePlaceholder: Image("placeholder_character_" + (randomBool() ? "1" : "2"))
                         )
-                            .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
-                            .scaledToFit()
+                        .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+                        .scaledToFit()
                         
                         if let description = character.description, description.count > 0 {
                             Text(description)
@@ -36,8 +36,7 @@ struct CharacterDetailView: View {
                 .listRowBackground(Color.appBackground)
                 .listRowInsets(.init())
                 
-               
-                if let items = character.comics?.items {
+                if let items = character.comics?.items, items.count > 0 {
                     Section {
                         Text("APPEARS IN THESE COMICS")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -65,7 +64,7 @@ struct CharacterDetailView: View {
             }
             .scrollIndicators(.hidden)
             .listStyle(PlainListStyle())
-        .addCustomNavigationBar(title: character.name?.capitalized ?? "")
+            .addCustomNavigationBar(title: character.name?.capitalized ?? "")
         }
         
     }

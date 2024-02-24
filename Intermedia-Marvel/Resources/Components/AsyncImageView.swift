@@ -50,8 +50,10 @@ struct AsyncImageView : View {
         .simultaneousGesture(
             TapGesture()
                 .onEnded {
+                    print("tsetset")
                     if showDetail {
                         showingDetail = true
+                        
                     }
                 }
         )
