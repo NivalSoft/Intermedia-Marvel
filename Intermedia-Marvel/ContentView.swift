@@ -20,7 +20,6 @@ struct ContentView: View {
             SplashView()
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        loginViewModel.login({})
                         withAnimation(.easeInOut(duration: 0.8)) {
                             self.showSplash = false
                         }
@@ -34,6 +33,9 @@ struct ContentView: View {
                             .environmentObject(loginViewModel)
                             .navigationDestination(for: NavigationDestination.self) { destination in
                                 navigation(for: destination)
+                            }
+                            .onAppear{
+                                print("xxx2 \(loginViewModel.isLogged)")
                             }
                     }
                 } else {

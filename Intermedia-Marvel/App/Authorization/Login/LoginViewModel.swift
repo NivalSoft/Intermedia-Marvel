@@ -12,8 +12,13 @@ final class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     
+    @Published var emailErrorType : TTextField.ErrorTypes?
+    @Published var passwordErrorType : TTextField.ErrorTypes?
+    
     @Published var isLoading: Bool = false
     @Published var isLogged: Bool = User.current != nil
+    
+    @Published var canLogin: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -27,16 +32,27 @@ final class LoginViewModel: ObservableObject {
         let user = User().getTestUser()
         user.save()
 
-        isLogged = true
+        print(email)
+
+        success()
+//        isLogged = true
         //call de login
     }
     
     private func validateFields() {
-
+        let validEmail = $email.map { $0.isValidEmail }
+        let validPassword = $password.map { $0.isValidPassword }
+        
+        Publishers.CombineLatest(validEmail, validPassword)
+            .map { $0 && $1 }
+            .assign(to: \.canLogin, on: self)
+            .store(in: &cancellables)
+        
     }
     
     func logout() {
         User.current?.clear()
+        print("xxx3 \(User.current)")
         isLogged = false
     }
     
