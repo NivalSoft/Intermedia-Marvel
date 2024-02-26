@@ -38,7 +38,7 @@ struct CharacterDetailView: View {
                 
                 if let items = character.comics?.items, items.count > 0 {
                     Section {
-                        Text("APPEARS IN THESE COMICS")
+                        Text(localized: "appears_in_comic")
                             .frame(maxWidth: .infinity, alignment: .center)
                             .font(.RobotoCondensed.regular(withSize: 20))
                             .padding(.top, 20)

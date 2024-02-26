@@ -22,7 +22,7 @@ struct CapsuleButton: View {
         Button {
             action()
         } label: {
-            Text(text)
+            Text(localized: text)
                 .font(.RobotoCondensed.regular(withSize: 14))
                 .frame(height: 44)
                 .frame(maxWidth: .infinity)

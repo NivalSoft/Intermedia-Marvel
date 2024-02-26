@@ -24,12 +24,12 @@ struct CharacterGenericCell : View {
                 .frame(width: MAX_HEIGHT, height: MAX_HEIGHT)
             
             VStack(spacing: 8) {
-                Text(character.name ?? "Marvel Hero")
+                Text(character.name ?? "")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.RobotoCondensed.regular(withSize: 24))
                 
                 if let description = character.description, !description.isEmpty {
-                    Text(character.description ?? "Marvel Description")
+                    Text(description)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.Roboto.regular(withSize: 14))
                         .foregroundStyle(.eventsCellTitle)

@@ -45,7 +45,7 @@ struct EventDetailView: View {
                 
                 
                 Section {
-                    Text("COMICS TO DISCUSS")
+                    Text(localized: "comics_to_discuss")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .font(.RobotoCondensed.regular(withSize: 20))
                         .padding(.vertical, 20)
@@ -69,7 +69,7 @@ struct EventDetailView: View {
                     .listRowInsets(.init())
                 } else {
                     Section {
-                        Text("There is nothing to show yet")
+                        Text(localized: "nothing_to_show")
                             .frame(maxWidth: .infinity, alignment: .center)
                             .font(.RobotoCondensed.regular(withSize: 12))
                             .padding(.vertical, 20)

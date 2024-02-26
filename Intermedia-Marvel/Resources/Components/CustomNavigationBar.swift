@@ -119,7 +119,7 @@ struct CustomNavigationBar: View {
     }
     
     @ViewBuilder func makeTitle(text: String) -> some View {
-        Text(text)
+        Text(localized: text)
             .font(.RobotoCondensed.bold(withSize: 20))
             .foregroundColor(.white)
     }

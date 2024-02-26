@@ -14,7 +14,7 @@ struct IntermediaLogo: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("developed_by")
+            Text(localized: "developed_by")
                 .foregroundStyle(.white)
                 .font(.RobotoCondensed.bold(withSize: 12))
                 .onAppear {

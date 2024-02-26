@@ -28,7 +28,7 @@ struct LoginView: View {
                 VStack {
                         TTextField(
                             text: $loginViewModel.email,
-                            placeholder: "Email",
+                            placeholder: "email",
                             image: Image(systemName: "envelope"),
                             keyboardType: .emailAddress,
                             errorType: $loginViewModel.emailErrorType
@@ -37,14 +37,14 @@ struct LoginView: View {
                         
                         TTextField(
                             text: $loginViewModel.password,
-                            placeholder: "Password",
+                            placeholder: "password",
                             image: Image(systemName: "lock"),
                             showSecure: true,
                             errorType: $loginViewModel.passwordErrorType
                         )
                         .focused($isFocused)
                     
-                    LoginButton(text: "LOGIN", enabled: $loginViewModel.canLogin, action: {
+                    LoginButton(text: "login", enabled: $loginViewModel.canLogin, action: {
                         isFocused = false
                         loginViewModel.login({
                             withAnimation(.easeInOut(duration: 0.8)) {

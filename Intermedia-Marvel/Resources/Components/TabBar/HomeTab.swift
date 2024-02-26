@@ -12,8 +12,8 @@ enum HomeTab: Int, Hashable, CaseIterable {
     
     var title: String {
         switch self {
-        case .characters    : return "Characters"
-        case .events        : return "Events"
+        case .characters    : return "characters".localized
+        case .events        : return "events".localized
         }
     }
     

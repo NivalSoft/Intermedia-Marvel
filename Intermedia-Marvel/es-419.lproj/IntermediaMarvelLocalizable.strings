@@ -1,0 +1,30 @@
+/* 
+  IntermediaMarvelLocalizable.strings
+  Intermedia-Marvel
+
+  Created by Nicolas Famularo on 26/02/2024.
+  
+*/
+
+/* Splash */
+"developed_by"      = "Desarrollado por";
+
+/* Auth */
+"logout"            = "Cerrar sesión";
+"login"             = "LOGIN";
+"email"             = "Email";
+"password"          = "Contraseña";
+
+/* Events */
+"comics_to_discuss" = "COMICS PARA CONVERSAR";
+
+/* Characters */
+"appears_in_comic"  = "APARECE EN ESTOS COMICS";
+
+/* Common */
+"nothing_to_show"   = "Aún no hay nada para mostrar";
+"settings"          = "Configuración";
+
+/* Tabs */
+"characters"    = "Personajes";
+"events"        = "Eventos";

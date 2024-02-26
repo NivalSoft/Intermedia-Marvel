@@ -88,7 +88,7 @@ struct TTextField: View {
     
     @ViewBuilder func title() -> some View {
         if !text.isEmpty && (errorType?.wrappedValue ?? .genericError) == .genericError {
-            Text(placeholder)
+            Text(placeholder.localized)
                 .font(.Roboto.regular(withSize: 12))
                 .foregroundColor(errorType?.wrappedValue != nil ? .error : isFocused ? .navigationBackground : .secondaryText)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -98,7 +98,7 @@ struct TTextField: View {
     
     @ViewBuilder func errorMessage() -> some View {
         if !text.isEmpty && (errorType?.wrappedValue ?? .genericError) != .genericError {
-            Text(errorType?.wrappedValue?.message ?? "")
+            Text(localized: errorType?.wrappedValue?.message ?? "")
                 .font(.Roboto.regular(withSize: 12))
                 .foregroundColor(errorType?.wrappedValue != nil ? .error : Color(.lightGray))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -110,7 +110,7 @@ struct TTextField: View {
         if isSecure {
             SecureField(
                 "", text: $text,
-                prompt: Text(placeholder).foregroundColor(.gray).font(Font.Roboto.regular(withSize: 16))
+                prompt: Text(localized: placeholder).foregroundColor(.gray).font(Font.Roboto.regular(withSize: 16))
             )
             .focused($isFocused)
             .font(Font.Roboto.regular(withSize: 16))
@@ -118,7 +118,7 @@ struct TTextField: View {
         } else {
             TextField(
                 "", text: $text,
-                prompt: Text(placeholder).foregroundColor(.gray).font(Font.Roboto.regular(withSize: 16))
+                prompt: Text(localized: placeholder).foregroundColor(.gray).font(Font.Roboto.regular(withSize: 16))
             )
             .focused($isFocused)
             .font(Font.Roboto.regular(withSize: 16))

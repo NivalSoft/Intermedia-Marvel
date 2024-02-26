@@ -25,7 +25,6 @@ struct EventGenericCell : View {
                 .padding([.leading, .vertical], PADDING)
                 .frame(width: MAX_HEIGHT + (PADDING * 0.5), height: MAX_HEIGHT + (PADDING * 0.5), alignment: .leading)
                
-            
             VStack(spacing: 8) {
                 Text(event.title ?? "Marvel Hero")
                     .frame(maxWidth: .infinity, alignment: .leading)

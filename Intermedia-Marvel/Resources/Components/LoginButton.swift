@@ -22,7 +22,7 @@ struct LoginButton: View {
         Button {
             action()
         } label: {
-            Text(text)
+            Text(localized: text)
                 .font(.Roboto.medium(withSize: 14))
                 .frame(height: 35)
                 .frame(maxWidth: .infinity)

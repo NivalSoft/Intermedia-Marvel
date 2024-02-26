@@ -28,6 +28,8 @@
 		EA07E7762B8A328100D516FF /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07E7752B8A328100D516FF /* CharacterDetailView.swift */; };
 		EA07E77A2B8A3FD200D516FF /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07E7792B8A3FD200D516FF /* CustomNavigationBar.swift */; };
 		EA07E77C2B8A403700D516FF /* CustomNavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07E77B2B8A403700D516FF /* CustomNavigationModifier.swift */; };
+		EA10A7562B8CBED3009C7609 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA10A7552B8CBED3009C7609 /* Localized.swift */; };
+		EA10A7592B8CBF7E009C7609 /* IntermediaMarvelLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA10A75B2B8CBF7E009C7609 /* IntermediaMarvelLocalizable.strings */; };
 		EA6E09EB2B8C3756006DCD31 /* DateCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6E09EA2B8C3756006DCD31 /* DateCodable.swift */; };
 		EA6E09ED2B8C37DF006DCD31 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6E09EC2B8C37DF006DCD31 /* DateHelper.swift */; };
 		EA9C158E2B8638FF00FF544E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9C158D2B8638FF00FF544E /* AppDelegate.swift */; };
@@ -119,6 +121,9 @@
 		EA07E7752B8A328100D516FF /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		EA07E7792B8A3FD200D516FF /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		EA07E77B2B8A403700D516FF /* CustomNavigationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationModifier.swift; sourceTree = "<group>"; };
+		EA10A7552B8CBED3009C7609 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		EA10A75A2B8CBF7E009C7609 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IntermediaMarvelLocalizable.strings; sourceTree = "<group>"; };
+		EA10A75C2B8CC01F009C7609 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/IntermediaMarvelLocalizable.strings"; sourceTree = "<group>"; };
 		EA6E09EA2B8C3756006DCD31 /* DateCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCodable.swift; sourceTree = "<group>"; };
 		EA6E09EC2B8C37DF006DCD31 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		EA9C158D2B8638FF00FF544E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -413,6 +418,7 @@
 				EAEF9F2B2B862CF0004D4792 /* Intermedia_MarvelApp.swift */,
 				EAEF9F2D2B862CF0004D4792 /* ContentView.swift */,
 				EA9C158D2B8638FF00FF544E /* AppDelegate.swift */,
+				EA10A75B2B8CBF7E009C7609 /* IntermediaMarvelLocalizable.strings */,
 				EAEF9F2F2B862CF1004D4792 /* Assets.xcassets */,
 				EAEF9F312B862CF1004D4792 /* Preview Content */,
 			);
@@ -499,6 +505,7 @@
 				EA07E76A2B88E67A00D516FF /* PageManager.swift */,
 				EA6E09EA2B8C3756006DCD31 /* DateCodable.swift */,
 				EA6E09EC2B8C37DF006DCD31 /* DateHelper.swift */,
+				EA10A7552B8CBED3009C7609 /* Localized.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -581,6 +588,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = EAEF9F1F2B862CF0004D4792;
 			packageReferences = (
@@ -606,6 +614,7 @@
 				EAE8E1942B87839C00EE17FB /* Roboto-Regular.ttf in Resources */,
 				EAEF9F332B862CF1004D4792 /* Preview Assets.xcassets in Resources */,
 				EABAAA492B8C1DC8000230F5 /* client_58787739872-9o60ta992qo9kda9297noc4ee5b50lgk.apps.googleusercontent.com.plist in Resources */,
+				EA10A7592B8CBF7E009C7609 /* IntermediaMarvelLocalizable.strings in Resources */,
 				EAEF9F302B862CF1004D4792 /* Assets.xcassets in Resources */,
 				EAE8E1912B87839C00EE17FB /* Roboto-Medium.ttf in Resources */,
 				EABAAA472B8C1A1F000230F5 /* GoogleService-Info.plist in Resources */,
@@ -652,6 +661,7 @@
 				EAE9300C2B8A6E7500CBC143 /* EventsViewModel.swift in Sources */,
 				EAE930082B8A63BE00CBC143 /* ComicListItemCell.swift in Sources */,
 				EA9C15992B863F4900FF544E /* User.swift in Sources */,
+				EA10A7562B8CBED3009C7609 /* Localized.swift in Sources */,
 				EA9C15952B863C6900FF544E /* NavigationDestination.swift in Sources */,
 				EABAAA0E2B8C002C000230F5 /* String+Extension.swift in Sources */,
 				EAEF9F2C2B862CF0004D4792 /* Intermedia_MarvelApp.swift in Sources */,
@@ -679,12 +689,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		EA10A75B2B8CBF7E009C7609 /* IntermediaMarvelLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA10A75A2B8CBF7E009C7609 /* en */,
+				EA10A75C2B8CC01F009C7609 /* es-419 */,
+			);
+			name = IntermediaMarvelLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		EAEF9F342B862CF1004D4792 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -748,6 +771,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

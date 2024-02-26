@@ -14,7 +14,7 @@ struct LogoutBottomSheet: View {
     
     var body: some View {
         VStack (spacing: 10) {
-            Text("Settings")
+            Text(localized: "settings")
                 .font(Font.RobotoCondensed.bold(withSize: 26))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -24,7 +24,7 @@ struct LogoutBottomSheet: View {
             Spacer()
             
             CapsuleButton(
-                text: "LOGOUT",
+                text: "logout",
                 enabled: .constant(true),
                 action: {
                     isPresented = false
