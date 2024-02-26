@@ -42,7 +42,7 @@ struct MainView: View {
         .sheet(isPresented: $isShowingSheet) {
             ZStack {
                 Color.navigationBackground.edgesIgnoringSafeArea(.all)
-                LogoutBottomSheet(viewModel: _loginViewModel)
+                LogoutBottomSheet(viewModel: _loginViewModel, isPresented: $isShowingSheet)
             }
             .onAppear {
                 setWindowBackgroundColor(.navigationBackground)

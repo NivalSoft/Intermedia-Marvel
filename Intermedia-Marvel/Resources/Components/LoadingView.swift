@@ -24,24 +24,30 @@ struct LoadingView: View {
     )
     
     var body: some View {
-        Circle()
-            .trim(from: 0.1, to: 0.94)
-            .stroke(gradient, style: .init(lineWidth: 10, lineCap: .round))
-            .frame(width: 73, height: 73)
-            .overlay {
-                Circle()
-                    .frame(width: 9, height: 9)
-                    .foregroundColor(Color(.cyan))
-                    .offset(x: 37)
-            }
-            .rotationEffect(.degrees(isRotating))
-            .offset(y: -36)
-            .onAppear {
-                withAnimation(.linear(duration: 1)
-                        .repeatForever(autoreverses: false)) {
-                    isRotating = 360.0
+        ZStack {
+            Color.black.ignoresSafeArea()
+                .opacity(0.8)
+                .blur(radius: 100)
+            Circle()
+                .trim(from: 0.1, to: 0.94)
+                .stroke(gradient, style: .init(lineWidth: 10, lineCap: .round))
+                .frame(width: 73, height: 73)
+                .overlay {
+                    Circle()
+                        .frame(width: 9, height: 9)
+                        .foregroundColor(Color(.cyan))
+                        .offset(x: 37)
                 }
-            }
+                .rotationEffect(.degrees(isRotating))
+                .offset(y: -36)
+                .onAppear {
+                    withAnimation(.linear(duration: 1)
+                            .repeatForever(autoreverses: false)) {
+                        isRotating = 360.0
+                    }
+                }
+        }
+        
     }
 }
 

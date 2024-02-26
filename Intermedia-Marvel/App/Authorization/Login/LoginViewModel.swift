@@ -7,10 +7,11 @@
 
 import SwiftUI
 import Combine
+import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "testing1@gmail.com"
+    @Published var password: String = "testing"
     
     @Published var emailErrorType : TTextField.ErrorTypes?
     @Published var passwordErrorType : TTextField.ErrorTypes?
@@ -26,17 +27,63 @@ final class LoginViewModel: ObservableObject {
         validateFields()
     }
     
-    func login(_ success: @escaping ()->Void) {
-//        isLoading = true
+    func login(_ success: @escaping ()-> Void) {
+        isLoading = true
         
-        let user = User().getTestUser()
+        Auth.auth().signIn(
+            withEmail: email,
+            password: password)
+        { [weak self] authResult, error in
+            guard let self = self else { return }
+            
+            if let authResult = authResult, error == nil {
+                saveUser(data: authResult)
+                success()
+            } else {
+                createUser {
+                    success()
+                }
+            }
+        }
+    }
+    
+    private func createUser(_ success: @escaping ()-> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            
+            if let authResult = authResult, error == nil {
+                saveUser(data: authResult)
+                success()
+            } else {
+                if let error = error as? NSError, let firebaseError = FirebaseError(error: error) {
+                    print("Login error: \(firebaseError)")
+                    
+                    switch firebaseError.type {
+                    case .generic:
+                        self.emailErrorType = .genericError
+                    case .emailAlreadyInUse:
+                        self.emailErrorType = .genericError
+                        self.passwordErrorType = .wrongPassword
+                    }
+                    
+                } else {
+                    self.emailErrorType = .genericError
+                }
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func saveUser(data: AuthDataResult?) {
+        guard let firebaseUser = data?.user else { return }
+        let user = User(
+            id: firebaseUser.uid,
+            accessToken: firebaseUser.refreshToken,
+            username: firebaseUser.displayName,
+            email: firebaseUser.email
+        )
         user.save()
-
-        print(email)
-
-        success()
-//        isLogged = true
-        //call de login
+        self.isLoading = false
     }
     
     private func validateFields() {
@@ -50,10 +97,15 @@ final class LoginViewModel: ObservableObject {
         
     }
     
-    func logout() {
+    func logout(_ success: @escaping ()-> Void) {
         User.current?.clear()
-        print("xxx3 \(User.current)")
-        isLogged = false
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+        success()
     }
     
 }

@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Combine
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -15,6 +18,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         UIRefreshControl.appearance().tintColor = UIColor(named: "AccentColor")
+        
+        FirebaseApp.configure()
         
         configureNavigationBar()
         

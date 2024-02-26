@@ -10,6 +10,7 @@ import SwiftUI
 struct LogoutBottomSheet: View {
     
     @EnvironmentObject var viewModel: LoginViewModel
+    @Binding var isPresented : Bool
     
     var body: some View {
         VStack (spacing: 10) {
@@ -26,7 +27,12 @@ struct LogoutBottomSheet: View {
                 text: "LOGOUT",
                 enabled: .constant(true),
                 action: {
-                    viewModel.logout()
+                    isPresented = false
+                    viewModel.logout({
+                        withAnimation(.easeInOut(duration: 0.8)) {
+                            viewModel.isLogged = false
+                        }
+                    })
                 })
         }
         .padding([.leading, .trailing], 16)
@@ -37,6 +43,6 @@ struct LogoutBottomSheet: View {
 }
 
 #Preview {
-    LogoutBottomSheet()
+    LogoutBottomSheet(isPresented: .constant(true))
 }
 

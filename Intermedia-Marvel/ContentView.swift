@@ -15,6 +15,8 @@ struct ContentView: View {
     @State var isLogged = User.current != nil
     @State var selectedTab: HomeTab = .characters
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some View {
         if showSplash {
             SplashView()

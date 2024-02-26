@@ -23,23 +23,14 @@ struct TTextField: View {
     
     enum ErrorTypes {
         case genericError
-        case passwordTooShort
-        case incorrectRepeatedPassword
-        case usernameAlreadyInUse
-        case emailAlreadyInUser
+        case wrongPassword
         
         var message : String {
             switch self {
             case .genericError:
                 return ""
-            case .passwordTooShort:
-                return "too_short_password"
-            case .incorrectRepeatedPassword:
-                return "incorrect_repeated_pass"
-            case .usernameAlreadyInUse:
-                return "username_already_used"
-            case .emailAlreadyInUser:
-                return "email_already_used"
+            case .wrongPassword:
+                return "wrong_password"
             }
         }
     }

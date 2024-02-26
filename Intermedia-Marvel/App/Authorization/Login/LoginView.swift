@@ -62,6 +62,7 @@ struct LoginView: View {
                 .padding(.top, BANNER_HEIGHT + 16)
                 .padding(.horizontal, 21)
             }
+            .loading($loginViewModel.isLoading)
     }
 }
 
