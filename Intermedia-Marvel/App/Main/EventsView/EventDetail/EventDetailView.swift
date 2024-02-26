@@ -22,13 +22,13 @@ struct EventDetailView: View {
                             url: event.thumbnail?.getFileURL(size: .amazing),
                             imagePlaceholder: Image(.placeholderEvent)
                         )
-                            .frame(width: 86, height: 86)
-
+                        .frame(width: 86, height: 86)
+                        
                         VStack (spacing: 8) {
                             Text(event.title ?? "")
                                 .font(.RobotoCondensed.regular(withSize: 24))
                                 .frame(maxWidth: .infinity, alignment: .topLeading)
-
+                            
                             
                             Text("age?")
                                 .font(.Roboto.regular(withSize: 14))
@@ -42,18 +42,19 @@ struct EventDetailView: View {
                 .listRowBackground(Color.white)
                 .listRowSeparator(.hidden)
                 .listRowInsets(.init())
-               
-                if let items = event.comics?.items {
-                    Section {
-                        Text("COMICS TO DISCUSS")
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .font(.RobotoCondensed.regular(withSize: 20))
-                            .padding(.vertical, 20)
-                    }
-                    .listRowBackground(Color.white)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(.init())
-                    
+                
+                
+                Section {
+                    Text("COMICS TO DISCUSS")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .font(.RobotoCondensed.regular(withSize: 20))
+                        .padding(.vertical, 20)
+                }
+                .listRowBackground(Color.white)
+                .listRowSeparator(.hidden)
+                .listRowInsets(.init())
+                
+                if let items = event.comics?.items, !items.isEmpty {
                     Section {
                         ForEach(items) { item in
                             ComicListItemCell(item: item)
@@ -65,6 +66,16 @@ struct EventDetailView: View {
                     .listRowBackground(Color.white)
                     .padding(.horizontal, 4)
                     .listStyle(.insetGrouped)
+                    .listRowInsets(.init())
+                } else {
+                    Section {
+                        Text("There is nothing to show yet")
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .font(.RobotoCondensed.regular(withSize: 12))
+                            .padding(.vertical, 20)
+                    }
+                    .listRowBackground(Color.white)
+                    .listRowSeparator(.hidden)
                     .listRowInsets(.init())
                 }
                 

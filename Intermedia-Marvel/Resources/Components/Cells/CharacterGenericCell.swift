@@ -28,10 +28,12 @@ struct CharacterGenericCell : View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.RobotoCondensed.regular(withSize: 24))
                 
-                Text(character.description ?? "Marvel Description")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.Roboto.regular(withSize: 14))
-                    .foregroundStyle(.eventsCellTitle)
+                if let description = character.description, !description.isEmpty {
+                    Text(character.description ?? "Marvel Description")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.Roboto.regular(withSize: 14))
+                        .foregroundStyle(.eventsCellTitle)
+                }
             }
             .multilineTextAlignment(.leading)
             .minimumScaleFactor(0.8)
