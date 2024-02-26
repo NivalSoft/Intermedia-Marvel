@@ -9,14 +9,15 @@ import SwiftUI
 
 struct LoadingView: View {
     
+    var backgroundClear : Bool = false
+    
     @State private var isRotating = 0.0
     
     private let gradient = AngularGradient(
         gradient: Gradient(colors: [
-            Color(.cyan),
-            Color(.blue),
-            Color(.purple),
-            Color(.systemPink)
+            Color(.error),
+            Color(.red),
+            Color(.clear)
         ]),
         center: .center,
         startAngle: .degrees(300),
@@ -25,8 +26,9 @@ struct LoadingView: View {
     
     var body: some View {
         ZStack {
+            
             Color.black.ignoresSafeArea()
-                .opacity(0.8)
+                .opacity(backgroundClear ? 0 : 0.8)
                 .blur(radius: 100)
             Circle()
                 .trim(from: 0.1, to: 0.94)
@@ -35,7 +37,7 @@ struct LoadingView: View {
                 .overlay {
                     Circle()
                         .frame(width: 9, height: 9)
-                        .foregroundColor(Color(.cyan))
+                        .foregroundColor(Color(.error))
                         .offset(x: 37)
                 }
                 .rotationEffect(.degrees(isRotating))

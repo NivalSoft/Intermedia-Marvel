@@ -267,14 +267,14 @@
 			path = Characters;
 			sourceTree = "<group>";
 		};
-		EA07E76F2B8A27B200D516FF /* EventsView */ = {
+		EA07E76F2B8A27B200D516FF /* Events */ = {
 			isa = PBXGroup;
 			children = (
 				EAE9300D2B8A6E8100CBC143 /* EventDetail */,
 				EAE930092B8A6E6C00CBC143 /* EventsView.swift */,
 				EAE9300B2B8A6E7500CBC143 /* EventsViewModel.swift */,
 			);
-			path = EventsView;
+			path = Events;
 			sourceTree = "<group>";
 		};
 		EA07E7742B8A326100D516FF /* CharacterDetail */ = {
@@ -306,7 +306,7 @@
 		EA9C158C2B86342000FF544E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EA07E76F2B8A27B200D516FF /* EventsView */,
+				EA07E76F2B8A27B200D516FF /* Events */,
 				EA07E76E2B8A27A400D516FF /* Characters */,
 				EA9C15A12B86494000FF544E /* MainView.swift */,
 				EA07E7652B88E5BF00D516FF /* MainViewModel.swift */,

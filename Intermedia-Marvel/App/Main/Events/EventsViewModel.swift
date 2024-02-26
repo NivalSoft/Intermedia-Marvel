@@ -11,9 +11,7 @@ import Combine
 final class EventsViewModel: ObservableObject {
 
     @Published var loadingEvents = false
-    
     @Published var events: [Event] = []
-    
     
     @Republished var eventsManager = PageManager<Event> { page, _ in
         APIClient.Event.GetEvents(page: page).dispatch()

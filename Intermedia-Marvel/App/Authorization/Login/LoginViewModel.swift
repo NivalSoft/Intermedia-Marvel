@@ -10,8 +10,8 @@ import Combine
 import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
-    @Published var email: String = "testing1@gmail.com"
-    @Published var password: String = "testing"
+    @Published var email: String = ""
+    @Published var password: String = ""
     
     @Published var emailErrorType : TTextField.ErrorTypes?
     @Published var passwordErrorType : TTextField.ErrorTypes?
