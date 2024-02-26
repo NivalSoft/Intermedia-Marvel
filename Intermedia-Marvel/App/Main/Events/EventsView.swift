@@ -61,7 +61,13 @@ struct EventsView: View {
                     .padding(.top, 10)
             }
         }
+        .listStyle(.plain)
+        .padding(.top, 22)
+        .padding(.horizontal, 16)
         .scrollIndicators(.hidden)
+        .refreshable {
+            viewModel.eventsManager.reload()
+        }
     }
 }
 

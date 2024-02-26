@@ -13,7 +13,7 @@ struct CharactersView: View {
     @EnvironmentObject var router: Router
     
     @State var hasItems = false
-    
+
     var body: some View {
         ZStack {
             if !hasItems {
@@ -48,6 +48,9 @@ struct CharactersView: View {
                     .padding(.top, 10)
             }
         }
+        .listStyle(.plain)
+        .padding(.top, 22)
+        .padding(.horizontal, 16)
         .scrollIndicators(.hidden)
     }
     
