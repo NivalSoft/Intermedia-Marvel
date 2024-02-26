@@ -20,7 +20,7 @@ struct ComicListItemCell : View {
                 .font(.Roboto.regular(withSize: 16))
                 .frame(alignment: .leading)
             
-            Text("año?")
+            Text(verbatim: "\(Int.random(in: 1940..<2024))")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.Roboto.regular(withSize: 16))
                 .foregroundStyle(.secondaryText)
