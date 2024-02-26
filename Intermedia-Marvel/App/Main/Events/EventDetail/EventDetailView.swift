@@ -30,7 +30,7 @@ struct EventDetailView: View {
                                 .frame(maxWidth: .infinity, alignment: .topLeading)
                             
                             
-                            Text("age?")
+                            Text(event.modified?.toCustomString() ?? "Marvel Description")
                                 .font(.Roboto.regular(withSize: 14))
                                 .foregroundStyle(.eventsCellTitle)
                                 .frame(maxWidth: .infinity, alignment: .leading)

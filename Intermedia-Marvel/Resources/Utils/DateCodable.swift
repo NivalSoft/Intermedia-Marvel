@@ -40,7 +40,7 @@ struct ISODateTimeFull: DateCodableFormat {
     
     static func decode(_ value: String?) throws -> Date? {
         guard let value = value else { return nil }
-        return Date(fromString: value, format: .appStandard)
+        return Date(fromString: value, format: .isoDate)
     }
     
     static func encode(_ date: Date?) -> String? {

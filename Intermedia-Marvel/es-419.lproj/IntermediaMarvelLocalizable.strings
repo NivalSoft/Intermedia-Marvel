@@ -24,6 +24,7 @@
 /* Common */
 "nothing_to_show"   = "Aún no hay nada para mostrar";
 "settings"          = "Configuración";
+"of"                = "de";
 
 /* Tabs */
 "characters"    = "Personajes";

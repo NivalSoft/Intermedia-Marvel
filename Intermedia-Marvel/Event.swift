@@ -39,7 +39,7 @@ struct Event: Codable,  Identifiable,  IDHashable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self._modified = try container.decodeIfPresent(DateCodable<ISODateTimeFull>.self, forKey: .modified) ?? .init(wrappedValue: nil)
+        self._modified = try container.decode(DateCodable<ISODateTimeFull>.self, forKey: .modified)
         self.id = try container.decodeIfPresent(Int.self, forKey: .id)
         self.title = try container.decodeIfPresent(String.self, forKey: .title)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)

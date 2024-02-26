@@ -30,7 +30,7 @@ struct EventGenericCell : View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.RobotoCondensed.regular(withSize: 24))
                 
-                Text(event.modified?.toString(format: .custom("dd MM yyyy")) ?? "Marvel Description")
+                Text(event.modified?.toCustomString() ?? "Marvel Description")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.Roboto.regular(withSize: 14))
                     .foregroundStyle(.eventsCellTitle)

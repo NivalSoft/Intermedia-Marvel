@@ -116,6 +116,10 @@ public extension Date {
         }
         return nil
     }
+    
+    func toCustomString() -> String? {
+        return self.toString(format: .custom("dd '\("of".localized)' MMMM yyyy"))
+    }
 
     /// Converts the date to string based on a date style and time style with optional relative date formatting, optional time zone and optional locale.
     // swiftlint:disable:next line_length

@@ -24,6 +24,7 @@
 /* Common */
 "nothing_to_show"   = "There is nothing to show yet";
 "settings"          = "Settings";
+"of"                = "of";
 
 /* Tabs */
 "characters"    = "Characters";
